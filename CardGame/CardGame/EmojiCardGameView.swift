@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Combine
 
-class ViewController: UIViewController {
+class EmojiCardGameView: UIViewController {
+    @Subscriber var viewModel: EmojiCardGame
     
     var cards: [UIButton] = []
     let flipCountLabel = UILabel()
-    let cardEmoji = ["👻", "🎃", "👻", "🎃"]
+    
     
     var flipCount = 0 {
         didSet {
@@ -101,3 +103,4 @@ extension UIButton {
         ])
     }
 }
+

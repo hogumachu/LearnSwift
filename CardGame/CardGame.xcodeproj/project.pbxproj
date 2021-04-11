@@ -9,19 +9,27 @@
 /* Begin PBXBuildFile section */
 		F1354E6B2620564A0006FC1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1354E6A2620564A0006FC1C /* AppDelegate.swift */; };
 		F1354E6D2620564A0006FC1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1354E6C2620564A0006FC1C /* SceneDelegate.swift */; };
-		F1354E6F2620564A0006FC1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1354E6E2620564A0006FC1C /* ViewController.swift */; };
+		F1354E6F2620564A0006FC1C /* EmojiCardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1354E6E2620564A0006FC1C /* EmojiCardGameView.swift */; };
 		F1354E742620564C0006FC1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1354E732620564C0006FC1C /* Assets.xcassets */; };
 		F1354E772620564C0006FC1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1354E752620564C0006FC1C /* LaunchScreen.storyboard */; };
+		F19142972622C22800E89EF1 /* EmojiCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19142962622C22800E89EF1 /* EmojiCardGame.swift */; };
+		F191429A2622C23500E89EF1 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19142992622C23500E89EF1 /* CardGame.swift */; };
+		F191429D2622C4E800E89EF1 /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191429C2622C4E800E89EF1 /* Array+Only.swift */; };
+		F19142A02622C55200E89EF1 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191429F2622C55200E89EF1 /* Array+Identifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F1354E672620564A0006FC1C /* CardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1354E6A2620564A0006FC1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1354E6C2620564A0006FC1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F1354E6E2620564A0006FC1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1354E6E2620564A0006FC1C /* EmojiCardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCardGameView.swift; sourceTree = "<group>"; };
 		F1354E732620564C0006FC1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1354E762620564C0006FC1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1354E782620564C0006FC1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F19142962622C22800E89EF1 /* EmojiCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCardGame.swift; sourceTree = "<group>"; };
+		F19142992622C23500E89EF1 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		F191429C2622C4E800E89EF1 /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
+		F191429F2622C55200E89EF1 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +64,11 @@
 			children = (
 				F1354E6A2620564A0006FC1C /* AppDelegate.swift */,
 				F1354E6C2620564A0006FC1C /* SceneDelegate.swift */,
-				F1354E6E2620564A0006FC1C /* ViewController.swift */,
+				F1354E6E2620564A0006FC1C /* EmojiCardGameView.swift */,
+				F19142962622C22800E89EF1 /* EmojiCardGame.swift */,
+				F19142992622C23500E89EF1 /* CardGame.swift */,
+				F191429F2622C55200E89EF1 /* Array+Identifiable.swift */,
+				F191429C2622C4E800E89EF1 /* Array+Only.swift */,
 				F1354E732620564C0006FC1C /* Assets.xcassets */,
 				F1354E752620564C0006FC1C /* LaunchScreen.storyboard */,
 				F1354E782620564C0006FC1C /* Info.plist */,
@@ -133,9 +145,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1354E6F2620564A0006FC1C /* ViewController.swift in Sources */,
+				F1354E6F2620564A0006FC1C /* EmojiCardGameView.swift in Sources */,
 				F1354E6B2620564A0006FC1C /* AppDelegate.swift in Sources */,
+				F19142972622C22800E89EF1 /* EmojiCardGame.swift in Sources */,
+				F191429D2622C4E800E89EF1 /* Array+Only.swift in Sources */,
 				F1354E6D2620564A0006FC1C /* SceneDelegate.swift in Sources */,
+				F19142A02622C55200E89EF1 /* Array+Identifiable.swift in Sources */,
+				F191429A2622C23500E89EF1 /* CardGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
