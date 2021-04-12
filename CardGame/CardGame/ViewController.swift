@@ -9,9 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    lazy var game = CardGame(numberOfPairsOfCards: (cards.count + 1) / 2)
     var cards: [UIButton] = []
     let flipCountLabel = UILabel()
-    let cardEmoji = ["👻", "🎃", "👻", "🎃"]
+    
     
     var flipCount = 0 {
         didSet {
@@ -21,13 +22,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingView(view: view)
+        settingView()
     }
     
-    func settingView(view: UIView) {
-        for emoji in cardEmoji {
+    func settingView() {
+        for _ in 1...16 {
             let card = UIButton()
-            card.cardSetting(title: emoji, backgroundColor: .white, view: view)
+            card.cardSetting(title: "", backgroundColor: .orange, view: view)
             cards.append(card)
         }
         
@@ -49,40 +50,82 @@ class ViewController: UIViewController {
             flipCountLabel.heightAnchor.constraint(equalToConstant: 50),
             flipCountLabel.widthAnchor.constraint(equalToConstant: 100),
             
-            cards[0].centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 100),
-            cards[0].centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 250),
+            cards[0].leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
+            cards[0].topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
+            cards[1].leftAnchor.constraint(equalTo: cards[0].rightAnchor, constant: 5),
+            cards[1].topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
+            cards[2].leftAnchor.constraint(equalTo: cards[1].rightAnchor, constant: 5),
+            cards[2].topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
+            cards[3].leftAnchor.constraint(equalTo: cards[2].rightAnchor, constant: 5),
+            cards[3].topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
             
-            cards[1].centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -100),
-            cards[1].centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 250),
+            cards[4].leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
+            cards[4].topAnchor.constraint(equalTo: cards[0].bottomAnchor, constant: 5),
+            cards[5].leftAnchor.constraint(equalTo: cards[4].rightAnchor, constant: 5),
+            cards[5].topAnchor.constraint(equalTo: cards[0].bottomAnchor, constant: 5),
+            cards[6].leftAnchor.constraint(equalTo: cards[5].rightAnchor, constant: 5),
+            cards[6].topAnchor.constraint(equalTo: cards[0].bottomAnchor, constant: 5),
+            cards[7].leftAnchor.constraint(equalTo: cards[6].rightAnchor, constant: 5),
+            cards[7].topAnchor.constraint(equalTo: cards[0].bottomAnchor, constant: 5),
             
-            cards[2].centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 100),
-            cards[2].centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -250),
+            cards[8].leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
+            cards[8].topAnchor.constraint(equalTo: cards[4].bottomAnchor, constant: 5),
+            cards[9].leftAnchor.constraint(equalTo: cards[8].rightAnchor, constant: 5),
+            cards[9].topAnchor.constraint(equalTo: cards[4].bottomAnchor, constant: 5),
+            cards[10].leftAnchor.constraint(equalTo: cards[9].rightAnchor, constant: 5),
+            cards[10].topAnchor.constraint(equalTo: cards[4].bottomAnchor, constant: 5),
+            cards[11].leftAnchor.constraint(equalTo: cards[10].rightAnchor, constant: 5),
+            cards[11].topAnchor.constraint(equalTo: cards[4].bottomAnchor, constant: 5),
             
-            cards[3].centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -100),
-            cards[3].centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -250),
+            cards[12].leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
+            cards[12].topAnchor.constraint(equalTo: cards[8].bottomAnchor, constant: 5),
+            cards[13].leftAnchor.constraint(equalTo: cards[12].rightAnchor, constant: 5),
+            cards[13].topAnchor.constraint(equalTo: cards[8].bottomAnchor, constant: 5),
+            cards[14].leftAnchor.constraint(equalTo: cards[13].rightAnchor, constant: 5),
+            cards[14].topAnchor.constraint(equalTo: cards[8].bottomAnchor, constant: 5),
+            cards[15].leftAnchor.constraint(equalTo: cards[14].rightAnchor, constant: 5),
+            cards[15].topAnchor.constraint(equalTo: cards[8].bottomAnchor, constant: 5),
+            
         ])
     }
     
-    
     @objc func touchUpCard(_ sender: UIButton) {
         flipCount += 1
+        
         if let cardNumber = cards.firstIndex(of: sender) {
-            flipCard(withEmoji: cardEmoji[cardNumber], on: sender)
+            print(cardNumber)
+            game.chooseCard(at: cardNumber)
+            updateViewFromModel()
         } else {
             print("chosen card was not in cardButtons")
         }
     }
-
-    func flipCard(withEmoji emoji: String, on button: UIButton) {
-        if button.currentTitle == emoji {
-            button.setTitle("", for: .normal)
-            button.backgroundColor = .orange
-        } else if button.currentTitle == "" {
-            button.setTitle(emoji, for: .normal)
-            button.backgroundColor = .white
+    
+    func updateViewFromModel() {
+        for index in cards.indices {
+            let button = cards[index]
+            let card = game.cards[index]
+            if card.isFaceUp {
+                button.setTitle(emoji(for: card), for: .normal)
+                button.backgroundColor = .white
+            } else {
+                button.setTitle("", for: .normal)
+                button.backgroundColor = card.isMatched ? .clear : .orange
+            }
         }
     }
     
+    // MARK: - Card Emoji
+    var cardEmoji = ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬","🍎","🙉","🦊","🐲"]
+    var emoji = [Int:String]()
+    
+    func emoji(for card: Card) -> String {
+        if emoji[card.identifier] == nil, cardEmoji.count > 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(cardEmoji.count)))
+            emoji[card.identifier] = cardEmoji.remove(at: randomIndex)
+        }
+        return emoji[card.identifier] ?? "?"
+    }
 }
 
 
