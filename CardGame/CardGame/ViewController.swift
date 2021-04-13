@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     lazy var game = CardGame(numberOfPairsOfCards: (cards.count + 1) / 2)
     var cards: [UIButton] = []
     let flipCountLabel = UILabel()
+    let newGameButton = UIButton()
     
     
     var flipCount = 0 {
@@ -37,18 +38,30 @@ class ViewController: UIViewController {
             card.addTarget(self, action: #selector(touchUpCard), for: .touchUpInside)
         }
         
+        newGameButton.addTarget(self, action: #selector(touchUpNewGame), for: .touchUpInside)
         view.addSubview(flipCountLabel)
         view.backgroundColor = .black
+        
+        view.addSubview(newGameButton)
         
         flipCountLabel.text = "Flips: 0"
         flipCountLabel.textColor = .white
         flipCountLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        newGameButton.setTitle("New Game", for: .normal)
+        newGameButton.setTitleColor(.white, for: .normal)
+        newGameButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            flipCountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            flipCountLabel.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            flipCountLabel.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 5),
+            flipCountLabel.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: 5),
             flipCountLabel.heightAnchor.constraint(equalToConstant: 50),
             flipCountLabel.widthAnchor.constraint(equalToConstant: 100),
+            
+            newGameButton.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: 5),
+            newGameButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: 5),
+            newGameButton.heightAnchor.constraint(equalTo: flipCountLabel.heightAnchor),
+            newGameButton.widthAnchor.constraint(equalTo: flipCountLabel.widthAnchor),
             
             cards[0].leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
             cards[0].topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
@@ -99,6 +112,10 @@ class ViewController: UIViewController {
         } else {
             print("chosen card was not in cardButtons")
         }
+    }
+    
+    @objc func touchUpNewGame(_ sender: UIButton) {
+        // TODO: - NewGame Function
     }
     
     func updateViewFromModel() {
