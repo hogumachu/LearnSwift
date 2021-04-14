@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         flipCount += 1
         
         if let cardNumber = cards.firstIndex(of: sender) {
-            print(cardNumber)
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         } else {
@@ -44,7 +43,11 @@ class ViewController: UIViewController {
     }
     
     @objc func touchUpNewGame(_ sender: UIButton) {
-        // TODO: - NewGame Function
+        print("New Game Button Action")
+        cardEmoji = ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬","🍎","🙉","🦊","🐲"]
+        flipCount = 0
+        self.game = CardGame(numberOfPairsOfCards: (cards.count + 1) / 2)
+        updateViewFromModel()
     }
     
     func updateViewFromModel() {
@@ -190,8 +193,8 @@ extension UIButton {
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 150),
-            self.widthAnchor.constraint(equalToConstant: 70)
+            self.heightAnchor.constraint(equalToConstant: .greatestFiniteMagnitude),
+            self.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude)
         ])
     }
 }
