@@ -8,17 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    lazy var game = CardGame(numberOfPairsOfCards: (cards.count + 1) / 2)
+    private lazy var game = CardGame(numberOfPairsOfCards: numberOfPairsOfCards)
     var cards: [UIButton] = []
-    let flipCountLabel = UILabel()
-    let newGameButton = UIButton()
-    let firstStackView = UIStackView()
-    let secondStackView = UIStackView()
-    let thirdStackView = UIStackView()
-    let lastStackView = UIStackView()
-    let sumStackView = UIStackView()
-    var flipCount = 0 { didSet { flipCountLabel.text = "Flips: \(flipCount)" } }
+    private let flipCountLabel = UILabel()
+    private let newGameButton = UIButton()
+    private let firstStackView = UIStackView()
+    private let secondStackView = UIStackView()
+    private let thirdStackView = UIStackView()
+    private let lastStackView = UIStackView()
+    private let sumStackView = UIStackView()
+    private(set) var flipCount = 0 { didSet { flipCountLabel.text = "Flips: \(flipCount)" } }
+    var numberOfPairsOfCards: Int { (cards.count + 1) / 2 }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,6 @@ class ViewController: UIViewController {
     }
     
     @objc func touchUpNewGame(_ sender: UIButton) {
-        print("New Game Button Action")
         cardEmoji = ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬","🍎","🙉","🦊","🐲"]
         flipCount = 0
         self.game = CardGame(numberOfPairsOfCards: (cards.count + 1) / 2)
@@ -65,18 +64,19 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Card Emoji
-    var cardEmoji = ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬","🍎","🙉","🦊","🐲"]
-    var emoji = [Int:String]()
+    private var cardEmoji = ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬","🍎","🙉","🦊","🐲"]
+    private var emoji = [Int:String]()
     
-    func emoji(for card: Card) -> String {
+    private func emoji(for card: Card) -> String {
         if emoji[card.identifier] == nil, cardEmoji.count > 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(cardEmoji.count)))
-            emoji[card.identifier] = cardEmoji.remove(at: randomIndex)
+            emoji[card.identifier] = cardEmoji.remove(at: (cardEmoji.count.randomValue))
         }
         return emoji[card.identifier] ?? "?"
     }
     
-    // MARK: - Drawing View
+
+    
+    // MARK: - Drawing View, Setting Card
     
     func settingCard() {
         for _ in 1...16 {
@@ -182,19 +182,3 @@ class ViewController: UIViewController {
     }
 }
 
-
-// MARK: - cardSetting
-
-extension UIButton {
-    func cardSetting(title: String, backgroundColor: UIColor, view: UIView) {
-        self.setTitle(title, for: .normal)
-        self.titleLabel?.font = .systemFont(ofSize: 40)
-        self.backgroundColor = backgroundColor
-        self.layer.cornerRadius = 10
-        self.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: .greatestFiniteMagnitude),
-            self.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude)
-        ])
-    }
-}
