@@ -65,13 +65,13 @@ class ViewController: UIViewController {
     
     // MARK: - Card Emoji
     private var cardEmoji = ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬","🍎","🙉","🦊","🐲"]
-    private var emoji = [Int:String]()
+    private var emoji = [Card:String]()
     
     private func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, cardEmoji.count > 0 {
-            emoji[card.identifier] = cardEmoji.remove(at: (cardEmoji.count.randomValue))
+        if emoji[card] == nil, cardEmoji.count > 0 {
+            emoji[card] = cardEmoji.remove(at: (cardEmoji.count.randomValue))
         }
-        return emoji[card.identifier] ?? "?"
+        return emoji[card] ?? "?"
     }
     
 
