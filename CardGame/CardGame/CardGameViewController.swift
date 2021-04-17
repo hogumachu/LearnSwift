@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CardGameViewController: UIViewController {
     private lazy var game = CardGame(numberOfPairsOfCards: numberOfPairsOfCards)
     var cards: [UIButton] = []
     private let flipCountLabel = UILabel()
