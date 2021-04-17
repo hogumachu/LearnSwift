@@ -62,6 +62,13 @@ class CardGameViewController: UIViewController {
             }
         }
     }
+    var theme: [String]? {
+        didSet {
+            cardEmoji = theme ?? [""]
+            emoji = [:]
+            updateViewFromModel()
+        }
+    }
     
     // MARK: - Card Emoji
     private var cardEmoji = ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬","🍎","🙉","🦊","🐲"]

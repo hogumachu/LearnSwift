@@ -12,6 +12,7 @@
 		F1354E6F2620564A0006FC1C /* CardGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1354E6E2620564A0006FC1C /* CardGameViewController.swift */; };
 		F1354E742620564C0006FC1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1354E732620564C0006FC1C /* Assets.xcassets */; };
 		F1354E772620564C0006FC1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1354E752620564C0006FC1C /* LaunchScreen.storyboard */; };
+		F1667A00262AC37F00C9D565 /* CardGameThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16679FF262AC37F00C9D565 /* CardGameThemeChooserViewController.swift */; };
 		F19142F32624749500E89EF1 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19142F22624749500E89EF1 /* CardGame.swift */; };
 		F19142FA2626C73600E89EF1 /* UIButton+Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19142F92626C73600E89EF1 /* UIButton+Card.swift */; };
 		F19142FE2627041700E89EF1 /* Int+RandomValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19142FD2627041700E89EF1 /* Int+RandomValue.swift */; };
@@ -25,6 +26,7 @@
 		F1354E732620564C0006FC1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1354E762620564C0006FC1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1354E782620564C0006FC1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F16679FF262AC37F00C9D565 /* CardGameThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameThemeChooserViewController.swift; sourceTree = "<group>"; };
 		F19142F22624749500E89EF1 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		F19142F92626C73600E89EF1 /* UIButton+Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Card.swift"; sourceTree = "<group>"; };
 		F19142FD2627041700E89EF1 /* Int+RandomValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomValue.swift"; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				F1354E6C2620564A0006FC1C /* SceneDelegate.swift */,
 				F1354E6E2620564A0006FC1C /* CardGameViewController.swift */,
+				F16679FF262AC37F00C9D565 /* CardGameThemeChooserViewController.swift */,
 				F19142F92626C73600E89EF1 /* UIButton+Card.swift */,
 				F19142FD2627041700E89EF1 /* Int+RandomValue.swift */,
 				F19142F22624749500E89EF1 /* CardGame.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1667A00262AC37F00C9D565 /* CardGameThemeChooserViewController.swift in Sources */,
 				F1354E6F2620564A0006FC1C /* CardGameViewController.swift in Sources */,
 				F19142F32624749500E89EF1 /* CardGame.swift in Sources */,
 				F19142FA2626C73600E89EF1 /* UIButton+Card.swift in Sources */,

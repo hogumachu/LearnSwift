@@ -16,7 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = CardGameViewController()
+        let nc = UINavigationController()
+        let mainView = CardGameThemeChooserViewController(nibName: nil, bundle: nil)
+        nc.viewControllers = [mainView]
+        window?.rootViewController = nc
         window?.makeKeyAndVisible()
     }
 
