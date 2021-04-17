@@ -8,7 +8,6 @@
 - MVC를 MVVM으로 활용 가능하면 MVVM 으로 변경
 
 ### Autolayout
-- Programmactically
-- Snapkit
+- Programmactically : StackView, Navigation (ViewController, Bar, Items)
 
 
