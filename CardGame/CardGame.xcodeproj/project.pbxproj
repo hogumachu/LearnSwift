@@ -65,8 +65,7 @@
 				F1354E6C2620564A0006FC1C /* SceneDelegate.swift */,
 				F1354E6E2620564A0006FC1C /* CardGameViewController.swift */,
 				F16679FF262AC37F00C9D565 /* CardGameThemeChooserViewController.swift */,
-				F19142F92626C73600E89EF1 /* UIButton+Card.swift */,
-				F19142FD2627041700E89EF1 /* Int+RandomValue.swift */,
+				F1667A03262AE1EB00C9D565 /* Extension */,
 				F19142F22624749500E89EF1 /* CardGame.swift */,
 				F1354E782620564C0006FC1C /* Info.plist */,
 				F16679FE262AC14800C9D565 /* Supporting FIles */,
@@ -82,6 +81,15 @@
 				F1354E752620564C0006FC1C /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting FIles";
+			sourceTree = "<group>";
+		};
+		F1667A03262AE1EB00C9D565 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F19142F92626C73600E89EF1 /* UIButton+Card.swift */,
+				F19142FD2627041700E89EF1 /* Int+RandomValue.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

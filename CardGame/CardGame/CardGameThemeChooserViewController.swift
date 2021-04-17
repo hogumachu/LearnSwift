@@ -13,6 +13,7 @@ class CardGameThemeChooserViewController: UIViewController, UISplitViewControlle
     private let sportsButton = UIButton()
     private let animalsButton = UIButton()
     private let themeStackView = UIStackView()
+    private let backgroundView = UIImageView(image: UIImage(named: "cardImage.png"))
     
     let themes = [
         "Halloween": ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬"],
@@ -22,8 +23,7 @@ class CardGameThemeChooserViewController: UIViewController, UISplitViewControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Card Game"
-        self.navigationController?.navigationBar.backgroundColor = .white
+        
         settingView()
     }
     @objc func nextScene(_ sender: UIButton) {
@@ -35,29 +35,50 @@ class CardGameThemeChooserViewController: UIViewController, UISplitViewControlle
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
+    // MARK: - Drawing View
+    
     func settingView() {
+        self.navigationItem.title = "Card Game"
+        self.navigationController?.navigationBar.backgroundColor = .white
+        view.addSubview(backgroundView)
         view.addSubview(themeStackView)
+        
         themeStackView.translatesAutoresizingMaskIntoConstraints = false
         themeStackView.axis = .vertical
         themeStackView.alignment = .center
         themeStackView.distribution = .fillEqually
-        themeStackView.spacing = 8
+        themeStackView.spacing = 12
         themeStackView.addArrangedSubview(halloweenButton)
         themeStackView.addArrangedSubview(sportsButton)
         themeStackView.addArrangedSubview(animalsButton)
         
         halloweenButton.setTitle("Halloween", for: .normal)
-        halloweenButton.titleLabel?.font = .systemFont(ofSize: 40)
+        halloweenButton.titleLabel?.font = .boldSystemFont(ofSize: 40)
+        halloweenButton.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        halloweenButton.layer.cornerRadius = 10
         
         sportsButton.setTitle("Sports", for: .normal)
-        sportsButton.titleLabel?.font = .systemFont(ofSize: 40)
+        sportsButton.titleLabel?.font = .boldSystemFont(ofSize: 40)
+        sportsButton.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        sportsButton.layer.cornerRadius = 10
         
         animalsButton.setTitle("Animals", for: .normal)
-        animalsButton.titleLabel?.font = .systemFont(ofSize: 40)
+        animalsButton.titleLabel?.font = .boldSystemFont(ofSize: 40)
+        animalsButton.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        animalsButton.layer.cornerRadius = 10
+        
+        
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.layer.opacity = 0.5
         
         NSLayoutConstraint.activate([
             themeStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            themeStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            themeStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            backgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            backgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            backgroundView.widthAnchor.constraint(equalToConstant: view.frame.width),
+            backgroundView.heightAnchor.constraint(equalToConstant: view.frame.width)
         ])
         
         halloweenButton.addTarget(self, action: #selector(nextScene), for: .touchUpInside)

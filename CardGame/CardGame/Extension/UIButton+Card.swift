@@ -10,7 +10,12 @@ import UIKit
 extension UIButton {
     func cardSetting(title: String, backgroundColor: UIColor, view: UIView) {
         self.setTitle(title, for: .normal)
-        self.titleLabel?.font = .systemFont(ofSize: 40)
+        
+        // TODO:- Dynamic Font Size
+        
+        self.titleLabel?.font = .systemFont(ofSize: view.frame.width/10)
+        
+        self.titleLabel?.adjustsFontSizeToFitWidth = true
         self.backgroundColor = backgroundColor
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
