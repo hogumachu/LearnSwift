@@ -14,14 +14,25 @@ class CardGameThemeChooserViewController: UIViewController, UISplitViewControlle
     private let animalsButton = UIButton()
     private let themeStackView = UIStackView()
     
+    let themes = [
+        "Halloween": ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬"],
+        "Sports": ["⚽️","🏀", "🏈","⚾️", "🥎", "🎾", "🏐", "🏉", "🥏", "🎱", "🪀", "🏓"],
+        "Animals": ["🐶", "🐹", "🐻", "🐯", "🐷", "🐥", "🦄", "🐟", "🦀", "🐲"]
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Card Game"
+        self.navigationController?.navigationBar.backgroundColor = .white
         settingView()
     }
-    
     @objc func nextScene(_ sender: UIButton) {
         let nextViewController = CardGameViewController.init()
-        self.showDetailViewController(nextViewController, sender: nextViewController.viewDidLoad())
+        if let themeName = sender.currentTitle, let theme = themes[themeName] {
+            nextViewController.theme = theme
+        }
+        nextViewController.navigationItem.title = sender.currentTitle
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     func settingView() {
@@ -41,7 +52,7 @@ class CardGameThemeChooserViewController: UIViewController, UISplitViewControlle
         sportsButton.setTitle("Sports", for: .normal)
         sportsButton.titleLabel?.font = .systemFont(ofSize: 40)
         
-        animalsButton.setTitle("Animal", for: .normal)
+        animalsButton.setTitle("Animals", for: .normal)
         animalsButton.titleLabel?.font = .systemFont(ofSize: 40)
         
         NSLayoutConstraint.activate([

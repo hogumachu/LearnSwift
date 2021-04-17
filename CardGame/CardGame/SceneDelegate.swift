@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let nc = UINavigationController()
         let mainView = CardGameThemeChooserViewController(nibName: nil, bundle: nil)
         nc.viewControllers = [mainView]
+//        nc.navigationBar.backgroundColor = .white
+//        nc.isNavigationBarHidden = true
         window?.rootViewController = nc
         window?.makeKeyAndVisible()
     }

@@ -43,7 +43,7 @@ class CardGameViewController: UIViewController {
     }
     
     @objc func touchUpNewGame(_ sender: UIButton) {
-        cardEmoji = ["🦇","😱","🙀","👿","🎃","👻","🍭","🍬","🍎","🙉","🦊","🐲"]
+        cardEmoji = theme ?? [""]
         flipCount = 0
         self.game = CardGame(numberOfPairsOfCards: (cards.count + 1) / 2)
         updateViewFromModel()
@@ -107,7 +107,7 @@ class CardGameViewController: UIViewController {
         
         // newGameButton Action
         newGameButton.addTarget(self, action: #selector(touchUpNewGame), for: .touchUpInside)
-    }
+    }                      
     
     func drawingView() {
         view.backgroundColor = .black
