@@ -10,6 +10,10 @@
 
 ### Autolayout
 - Programmactically : StackView, Navigation (ViewController, Bar, Items)
+<img src="https://user-images.githubusercontent.com/74225754/115139748-9e713c80-a06e-11eb-83e9-e17f7f5c9ecb.png" width="60%" height="60%">
+<img src="https://user-images.githubusercontent.com/74225754/115139749-a204c380-a06e-11eb-8057-1926a0c8b09b.png" width="60%" height="60%">
 
-![Simulator Screen Shot - iPhone 12 mini - 2021-04-18 at 00 31 03](<image src="https://user-images.githubusercontent.com/74225754/115139603-bac0a980-a06d-11eb-8e76-8172ea566519.png",width="40%">)
-![Simulator Screen Shot - iPhone 12 mini - 2021-04-18 at 00 30 49](<image src="https://user-images.githubusercontent.com/74225754/115139702-505c3900-a06e-11eb-8dc5-d0a19158dd00.png",width="40%">)
+<img src="https://user-images.githubusercontent.com/74225754/115140102-94503d80-a070-11eb-9da1-e641fa9cf1f4.png" width="60%" height="60%">
+<img src="https://user-images.githubusercontent.com/74225754/115140107-9b774b80-a070-11eb-8f3a-1233a156f1c6.png" width="60%" height="60%">
+<img src="https://user-images.githubusercontent.com/74225754/115140111-a5994a00-a070-11eb-93ad-b33694c9b04c.png" width="60%" height="60%">
+<img src="https://user-images.githubusercontent.com/74225754/115140113-a6ca7700-a070-11eb-93b5-0fc284d2df7f.png" width="60%" height="60%">
