@@ -21,19 +21,51 @@ class CardGameThemeChooserViewController: UIViewController, UISplitViewControlle
         "Animals": ["🐶", "🐹", "🐻", "🐯", "🐷", "🐥", "🦄", "🐟", "🦀", "🐲"]
     ]
     
+    override func awakeFromNib() {
+        splitViewController?.delegate = self
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        if let cvc = secondaryViewController as? CardGameViewController {
+            if cvc.theme == nil {
+                return true
+            }
+        }
+        return false
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settingView()
     }
-    @objc func nextScene(_ sender: UIButton) {
-        let nextViewController = CardGameViewController.init()
-        if let themeName = sender.currentTitle, let theme = themes[themeName] {
-            nextViewController.theme = theme
+    @objc func nextScene(_ sender: Any) {
+        if let cvc = splitViewDetailCardGameViewController {
+            if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName] {
+                cvc.theme = theme
+            }
+        } else if lastSeguedToConcentrationViewController != nil {
+            if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName] {
+                lastSeguedToConcentrationViewController!.theme = theme
+                self.navigationController?.showDetailViewController(lastSeguedToConcentrationViewController!, sender: sender)
+            }
+        } else {
+            let nextViewController = CardGameViewController.init()
+            if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName] {
+                nextViewController.theme = theme
+            }
+            nextViewController.navigationItem.title = (sender as? UIButton)?.currentTitle
+            self.navigationController?.showDetailViewController(nextViewController, sender: sender)
+            lastSeguedToConcentrationViewController = nextViewController
         }
-        nextViewController.navigationItem.title = sender.currentTitle
-        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
+    
+    private var splitViewDetailCardGameViewController: CardGameViewController? {
+        return splitViewController?.viewControllers.last as? CardGameViewController
+    }
+    
+    private var lastSeguedToConcentrationViewController: CardGameViewController?
     
     // MARK: - Drawing View
     
