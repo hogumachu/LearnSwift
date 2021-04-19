@@ -16,22 +16,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let tabBarController = UITabBarController()
+//        let tabBarController = UITabBarController()
         let splitViewController = UISplitViewController()
         let mainViewController = CardGameThemeChooserViewController(nibName: nil, bundle: nil)
         let navigationController = UINavigationController()
-        let detailViewController = CardGameViewController(nibName: nil, bundle: nil)
+//        let detailViewController = CardGameViewController(nibName: nil, bundle: nil)
         
         navigationController.viewControllers = [mainViewController]
         splitViewController.viewControllers = [navigationController]
         splitViewController.preferredDisplayMode = .oneBesideSecondary
         
-        splitViewController.tabBarItem.title = "Main Scene"
-        detailViewController.tabBarItem.title = "Deatail Scene"
-        
-        tabBarController.viewControllers = [splitViewController, detailViewController]
-        
-        window?.rootViewController = tabBarController
+//        splitViewController.tabBarItem.title = "Main Scene"
+//        detailViewController.tabBarItem.title = "Deatail Scene"
+//        tabBarController.viewControllers = [splitViewController, detailViewController]
+        window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
     }
 
