@@ -97,6 +97,7 @@ class CardGameViewController: UIViewController {
         for card in cards {
             view.addSubview(card)
             card.addTarget(self, action: #selector(touchUpCard), for: .touchUpInside)
+//            card.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchUpCard)))
         }
         view.addSubview(flipCountLabel)
         view.addSubview(newGameButton)
