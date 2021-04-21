@@ -8,8 +8,13 @@
 ### Design Pattern
 - MVC를 MVVM으로 활용 가능하면 MVVM 으로 변경
 
-### Autolayout
-- Programmactically : StackView, Navigation (ViewController, Bar, Items)
+### Autolayout (Programmactically)
+- StackView
+- Navigation (ViewController, Bar, Items)
+- TabbarController
+- SplitViewController
+
+
 <img src="https://user-images.githubusercontent.com/74225754/115139748-9e713c80-a06e-11eb-83e9-e17f7f5c9ecb.png" width="60%" height="60%">
 <img src="https://user-images.githubusercontent.com/74225754/115139749-a204c380-a06e-11eb-8057-1926a0c8b09b.png" width="60%" height="60%">
 
